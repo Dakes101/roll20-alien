@@ -10,17 +10,19 @@ var AlienNPCImporter = AlienNPCImporter || (function () {
   // ------------------------------------------------------------
 
   // Human-readable labels in .md → sheet attribute names
-  var ATTR_MAP = {
-    'Strength': 'strength',
-    'Agility': 'agility',
-    'Wits': 'wits',
-    'Empathy': 'empathy',
-    'Health': 'health',
-    'Stress': 'stress',
-    'Armor Rating': 'armor_rating',
-    'Radiation': 'radiation',
-    'Experience Points': 'xp'
-  };
+var ATTR_MAP = {
+  'Strength': 'strength',
+  'Agility': 'agility',
+  'Wits': 'wits',
+  'Empathy': 'empathy',
+  'Health': 'health',
+  'Stress': 'stress',
+  'Armor Rating': 'armor_rating',
+  'Radiation': 'radiation',
+  'Experience Points': 'xp',
+  'Story Points': 'story_points'     // NEW
+};
+
 
   // Human-readable skill labels in .md → sheet attribute names
   var SKILL_MAP = {
@@ -291,6 +293,16 @@ var AlienNPCImporter = AlienNPCImporter || (function () {
         label.toLowerCase().replace(/\s+/g, '_');
       createOrUpdateAttr(char.id, sheetName, npcData.skills[label]);
     });
+
+    // Extra meta fields that correspond to visible sheet UI
+    if (npcData.meta.career) {
+      createOrUpdateAttr(char.id, 'career', npcData.meta.career);
+    }
+
+    if (typeof npcData.meta.story_points !== 'undefined') {
+      createOrUpdateAttr(char.id, 'story_points', npcData.meta.story_points);
+    }
+
 
 // Bio text with improved formatting
 var bioLines = [];

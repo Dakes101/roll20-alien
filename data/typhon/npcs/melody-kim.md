@@ -1,8 +1,11 @@
 ---
+---
 type: npc
 game: alien
 name: "Melody Kim"
 role: "Civilian Engineer, Ross 619"
+career: "Engineer"                # NEW (for the Career field on sheet)
+story_points: 0                   # NEW (for the Story Points track)
 sheet: "Alien Roleplaying Game"
 tags: ["Typhon", "Ross 619", "Skyfire Down"]
 ---
