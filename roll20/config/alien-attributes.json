@@ -1,0 +1,11 @@
+{
+  "Strength": "strength",
+  "Agility": "agility",
+  "Wits": "wits",
+  "Empathy": "empathy",
+  "Health": "health",
+  "Stress": "stress",
+  "Armor Rating": "armor_rating",
+  "Radiation": "radiation",
+  "Experience Points": "xp"
+}

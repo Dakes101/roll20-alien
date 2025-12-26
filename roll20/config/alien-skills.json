@@ -1,0 +1,14 @@
+{
+  "Heavy Machinery": "heavy_machinery",
+  "Close Combat": "close_combat",
+  "Stamina": "stamina",
+  "Ranged Combat": "ranged_combat",
+  "Mobility": "mobility",
+  "Piloting": "piloting",
+  "Observation": "observation",
+  "Comtech": "comtech",
+  "Survival": "survival",
+  "Command": "command",
+  "Manipulation": "manipulation",
+  "Medical Aid": "medical_aid"
+}
