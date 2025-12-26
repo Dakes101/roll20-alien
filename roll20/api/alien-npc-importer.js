@@ -292,40 +292,30 @@ var AlienNPCImporter = AlienNPCImporter || (function () {
       createOrUpdateAttr(char.id, sheetName, npcData.skills[label]);
     });
 
-    // Bio text: role, tags, gear, talents, notes
-    var bioLines = [];
+// Bio text with improved formatting
+var bioLines = [];
 
-    bioLines.push('Sheet: ' + sheet);
+bioLines.push('Sheet: ' + sheet);
+if (role) bioLines.push('Role: ' + role);
+if (tags.length) bioLines.push('Tags: ' + tags.join(', '));
 
-    if (role) {
-      bioLines.push('Role: ' + role);
-    }
-    if (tags.length) {
-      bioLines.push('Tags: ' + tags.join(', '));
-    }
+if (npcData.gear.length) {
+  bioLines.push('\nGear:');
+  npcData.gear.forEach(function(g){ bioLines.push('  - ' + g); });
+}
 
-    if (npcData.gear && npcData.gear.length) {
-      bioLines.push('');
-      bioLines.push('Gear:');
-      npcData.gear.forEach(function (g) {
-        bioLines.push('- ' + g);
-      });
-    }
+if (npcData.talents.length) {
+  bioLines.push('\nTalents:');
+  npcData.talents.forEach(function(t){ bioLines.push('  - ' + t); });
+}
 
-    if (npcData.talents && npcData.talents.length) {
-      bioLines.push('');
-      bioLines.push('Talents:');
-      npcData.talents.forEach(function (t) {
-        bioLines.push('- ' + t);
-      });
-    }
+if (npcData.notes) {
+  bioLines.push('\nNotes:');
+  bioLines.push(npcData.notes);
+}
 
-    if (npcData.notes) {
-      bioLines.push('');
-      bioLines.push(npcData.notes);
-    }
+char.set('gmnotes', bioLines.join('\n'));
 
-    char.set('bio', bioLines.join('\n'));
 
     return char;
   };
